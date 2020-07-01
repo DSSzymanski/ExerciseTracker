@@ -20,24 +20,20 @@ create_cardio_t = """CREATE TABLE IF NOT EXISTS cardio (
                         cals integer
                     );"""
 
-create_workout_cardio_t = """CREATE TABLE IF NOT EXISTS workout/cardio (
-                                    workout_id integer
-                                    cardio_id integer
-                                    PRIMARY KEY(workout_id, cardio_id)
-                                    FOREIGN KEY(workout_id)
-                                        REFERENCES workout(workout_id)
-                                    FOREIGN KEY(cardio_id)
-                                        REFERENCES cardio(cardio_id)
+create_workout_cardio_t = """CREATE TABLE IF NOT EXISTS workoutCardio (
+                                    workout_id integer,
+                                    cardio_id integer,
+                                    PRIMARY KEY(workout_id, cardio_id),
+                                    FOREIGN KEY(workout_id) REFERENCES workout(workout_id),
+                                    FOREIGN KEY(cardio_id) REFERENCES cardio(cardio_id)
                                 );"""
 
-create_workout_exercise_t = """CREATE TABLE IF NOT EXISTS workout/exercise (
-                                    workout_id integer
-                                    exercise_id integer
-                                    PRIMARY KEY(workout_id, exercise_id)
-                                    FOREIGN KEY(workout_id)
-                                        REFERENCES workout(workout_id)
-                                    FOREIGN KEY(exercise_id)
-                                        REFERENCES exercise(exercise_id)
+create_workout_exercise_t = """CREATE TABLE IF NOT EXISTS workoutExercise (
+                                    workout_id integer,
+                                    exercise_id integer,
+                                    PRIMARY KEY(workout_id, exercise_id),
+                                    FOREIGN KEY(workout_id) REFERENCES workout(workout_id),
+                                    FOREIGN KEY(exercise_id) REFERENCES exercise(exercise_id)
                                 );"""
 create_table_codes = [
         create_workout_t,
