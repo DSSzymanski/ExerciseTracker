@@ -1,2 +1,3 @@
 database/workouts.db
 .spyproject/
+__pycache__/
