@@ -24,7 +24,7 @@ create_cardio_t = """CREATE TABLE IF NOT EXISTS cardio (
                     );"""
 
 #sql code to create a table to link workouts and cardio table entries
-create_workout_cardio_t = """CREATE TABLE IF NOT EXISTS workoutCardio (
+create_workoutCardio_t = """CREATE TABLE IF NOT EXISTS workoutCardio (
                                     workout_id integer,
                                     cardio_id integer,
                                     PRIMARY KEY(workout_id, cardio_id),
@@ -33,7 +33,7 @@ create_workout_cardio_t = """CREATE TABLE IF NOT EXISTS workoutCardio (
                                 );"""
 
 #sql code to create a table to link workouts and exercise table entries
-create_workout_exercise_t = """CREATE TABLE IF NOT EXISTS workoutExercise (
+create_workoutExercise_t = """CREATE TABLE IF NOT EXISTS workoutExercise (
                                     workout_id integer,
                                     exercise_id integer,
                                     PRIMARY KEY(workout_id, exercise_id),
@@ -46,8 +46,8 @@ create_table_codes = [
         create_workout_t,
         create_exercises_t,
         create_cardio_t,
-        create_workout_cardio_t,
-        create_workout_exercise_t
+        create_workoutCardio_t,
+        create_workoutExercise_t
         ]
 
 #insert row into workout table

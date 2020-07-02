@@ -9,8 +9,10 @@ Class is also used to add/delete rows to tables.
 
 All SQL code is found within sql_statements.py.
 
-EXAMPLE: DB = DBHandler() - initializes new DBHandler class and does the check
-                            if the database exists.
+EXAMPLES: DB = DBHandler() - initializes new DBHandler class and does the check
+                             if the database exists.
+         DB = DBHandler(location) - initializes new DBHandler class in custom
+         location and does the check if the database exists.
          DB.insert_workout(date) - inserts a workout into the workout table
                                    when given a date as a string.
          DB.insert_exercise(exercise) - inserts an exercise when given a valid
@@ -30,11 +32,20 @@ from sql_statements import create_table_codes
 
 class DBHandler:
     """
-
+    Class to handle database interations. Class will be responsible for
+    database creation and adding and deleting rows from the database tables.
     """
-    def __init__(self):
-        #default location for db
-        self.location = r"database\workouts.db"
+    def __init__(self, location=r"database\workouts.db"):
+        """
+        Initializes class. Location is directory within program for storing
+        the database by default. Will create db if not found, otherwise establishes a
+        connection.
+        :param location: path used to describe custom location. Default set to
+                         within program.
+        """
+        #location of the db
+        #TODO location path validation
+        self.location = location
         self.conn = None
         if not isfile(self.location):
             self._initialize_db()
