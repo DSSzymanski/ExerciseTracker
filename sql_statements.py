@@ -42,3 +42,13 @@ create_table_codes = [
         create_workout_cardio_t,
         create_workout_exercise_t
         ]
+
+insert_workout = """INSERT INTO workout(date) VALUES (?)"""
+
+insert_exercise = """INSERT INTO exercise(name, body_part, reps, sets, time)
+                    VALUES(?, ?, ?, ?, ?)"""
+
+insert_cardio = """INSERT INTO cardio (name, time, dist, cals)
+                    VALUES(?, ?, ?, ?)"""
+
+insert_workoutCardio = """"""
